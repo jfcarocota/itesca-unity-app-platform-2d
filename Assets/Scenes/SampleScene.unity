@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1429924304}
   - component: {fileID: 1429924305}
   - component: {fileID: 1429924306}
+  - component: {fileID: 1429924307}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.3
+  maxVel: 3.5
 --- !u!50 &1429924305
 Rigidbody2D:
   serializedVersion: 4
@@ -443,3 +445,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06386636, y: 0.00000047683716}
   m_Size: {x: 1.0760393, y: 2.4837532}
   m_Direction: 0
+--- !u!95 &1429924307
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429924301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4bb31764d51347429e9753dcc89a3a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
