@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
     float moveSpeed;
 
     SpriteRenderer spriteRenderer;
-
+    Rigidbody2D rigidBody2D;
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -24,7 +25,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 axis = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        transform.Translate(Vector2.right * axis.x * moveSpeed * Time.deltaTime);
+        //transform.Translate(Vector2.right * axis.x * moveSpeed * Time.deltaTime);
         spriteRenderer.flipX = axis.x < 0 ? true : axis.x > 0 ? false : spriteRenderer.flipX; 
+        rigidBody2D.AddForce(Vector2.right * axis.x * moveSpeed, ForceMode2D.Impulse);
     }
 }
