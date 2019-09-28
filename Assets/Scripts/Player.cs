@@ -18,7 +18,12 @@ public class Player : MonoBehaviour
 
     Vector2 axis;
     bool btnJump;
+
+    [SerializeField]
+    float rayDistance;
     
+    [SerializeField]
+    LayerMask groundLayer;
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -39,11 +44,24 @@ public class Player : MonoBehaviour
         rigidBody2D.AddForce(Vector2.right * axis.x * moveSpeed, ForceMode2D.Impulse);
         Vector2 currentVelocity = rigidBody2D.velocity;
         rigidBody2D.velocity = new Vector2(Mathf.Clamp(currentVelocity.x, -maxVel, maxVel), currentVelocity.y);
-        //jumping
-        if(btnJump)
+
+        //grounding
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            -transform.up, 
+            rayDistance,
+            groundLayer
+        );
+
+        if(hit.collider)
         {
-            rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //jumping
+            if(btnJump)
+            {
+                rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
+
     }
 
     void Update()
@@ -56,5 +74,11 @@ public class Player : MonoBehaviour
     {
         spriteRenderer.flipX = axis.x < 0 ? true : axis.x > 0 ? false : spriteRenderer.flipX;
         animator.SetFloat("axisX", Mathf.Abs(axis.x));
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
     }
 }
