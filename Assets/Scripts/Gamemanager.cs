@@ -8,6 +8,9 @@ public class Gamemanager : MonoBehaviour
     [SerializeField]
     Score score;
 
+    [SerializeField]
+    AudioClip sfxCoin;
+
     void Awake()
     {
         if(!instance)
@@ -24,5 +27,10 @@ public class Gamemanager : MonoBehaviour
     public Score GetScore
     {
         get => score;
+    }
+
+    public AudioClip CoinSound
+    {
+        get => sfxCoin;
     }
 }

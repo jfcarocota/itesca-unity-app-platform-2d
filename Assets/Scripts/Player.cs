@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidBody2D;
     Animator animator;
+    AudioSource audioSource;
 
     [SerializeField]
     float maxVel;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -85,6 +87,7 @@ public class Player : MonoBehaviour
             Coin coin = collider2D.gameObject.GetComponent<Coin>();
             Gamemanager.instance.GetScore.AddPoints(coin.Points);
             Destroy(collider2D.gameObject);
+            audioSource.PlayOneShot(Gamemanager.instance.CoinSound, 7f);
         }    
     }
 }
