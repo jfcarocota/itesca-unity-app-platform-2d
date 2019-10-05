@@ -95,5 +95,9 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("level01");
         } 
+        if(collider2D.gameObject.CompareTag("end"))
+        {
+            Debug.Log("Level ended");
+        }
     }
 }
