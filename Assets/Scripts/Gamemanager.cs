@@ -24,6 +24,11 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
+    void OnLevelWasLoaded(int level)
+    {
+        score.ResetScore();
+    }
+
     public Score GetScore
     {
         get => score;

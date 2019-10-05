@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -88,6 +89,11 @@ public class Player : MonoBehaviour
             Gamemanager.instance.GetScore.AddPoints(coin.Points);
             Destroy(collider2D.gameObject);
             audioSource.PlayOneShot(Gamemanager.instance.CoinSound, 7f);
-        }    
+        }   
+        if(collider2D.gameObject.CompareTag("death"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("level01");
+        } 
     }
 }

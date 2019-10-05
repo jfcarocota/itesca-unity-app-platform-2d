@@ -22,4 +22,10 @@ public class Score : MonoBehaviour
             textScore.text = $"Score: {score}";
         }
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+        textScore.text = $"Score: {score}";
+    }
 }
