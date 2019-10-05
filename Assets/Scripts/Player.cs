@@ -77,4 +77,13 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, -transform.up * rayDistance);
     }
+
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if(collider2D.gameObject.CompareTag("coin"))
+        {
+            Gamemanager.instance.GetScore.AddPoints(10);
+            Destroy(collider2D.gameObject);
+        }    
+    }
 }
