@@ -31,11 +31,6 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -59,9 +54,10 @@ public class Player : MonoBehaviour
             if(btnJump)
             {
                 rigidBody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                animator.SetTrigger("jump");
             }
         }
-
+        animator.SetBool("grounding", hit.collider);
     }
 
     void Update()
