@@ -6,19 +6,29 @@ using System;
 [Serializable]
 public class GameData
 {
-    [SerializeField]
+    /*[SerializeField]
     float posX;
     [SerializeField]
-    float posY;
+    float posY;*/
 
-    public float PosX { get => posX; set => posX = value; }
-    public float PosY { get => posY; set => posY = value; }
+    [SerializeField]
+    Vector2 position;
 
-    public GameData(float posX, float posY)
+    //public float PosX { get => posX; set => posX = value; }
+    //public float PosY { get => posY; set => posY = value; }
+
+    /*public GameData(float posX, float posY)
     {
         this.posX = posX;
         this.posY = posY;
-    }
+    }*/
 
     public GameData(){}
+
+    public GameData(Vector2 position)
+    {
+        this.position = position;
+    }
+
+    public Vector2 Position { get => position; set => position = value; }
 }
