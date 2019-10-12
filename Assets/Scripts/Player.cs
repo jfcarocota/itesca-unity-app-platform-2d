@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        //Gamemanager.instance.Player = this;
     }
 
 

@@ -11,6 +11,14 @@ public class Gamemanager : MonoBehaviour
     [SerializeField]
     AudioClip sfxCoin;
 
+    [SerializeField]
+    Datamanager datamanager;
+
+    [SerializeField]
+    Player player;
+
+    GameData gameData;
+
     void Awake()
     {
         if(!instance)
@@ -22,6 +30,13 @@ public class Gamemanager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        Vector2 pos = player.transform.position;
+        gameData = new GameData(pos.x, pos.y);
+        datamanager.SaveData(gameData);
     }
 
     void OnLevelWasLoaded(int level)
@@ -38,4 +53,5 @@ public class Gamemanager : MonoBehaviour
     {
         get => sfxCoin;
     }
+    public Player Player { get => player; set => player = value; }
 }
