@@ -19,6 +19,9 @@ public class Gamemanager : MonoBehaviour
 
     GameData gameData;
 
+    [SerializeField]
+    TouchControls touchControls;
+
     void Awake()
     {
         if(!instance)
@@ -67,4 +70,5 @@ public class Gamemanager : MonoBehaviour
         get => sfxCoin;
     }
     public Player Player { get => player; set => player = value; }
+    public TouchControls TouchControls { get => touchControls; }
 }

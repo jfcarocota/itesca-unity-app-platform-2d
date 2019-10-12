@@ -40,8 +40,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float axisXtouch = Gamemanager.instance.TouchControls.Left.InputX + Gamemanager.instance.TouchControls.Right.InputX;
         //Move
-        rigidBody2D.AddForce(Vector2.right * axis.x * moveSpeed, ForceMode2D.Impulse);
+        rigidBody2D.AddForce(Vector2.right * axisXtouch * moveSpeed, ForceMode2D.Impulse);
         Vector2 currentVelocity = rigidBody2D.velocity;
         rigidBody2D.velocity = new Vector2(Mathf.Clamp(currentVelocity.x, -maxVel, maxVel), currentVelocity.y);
 
