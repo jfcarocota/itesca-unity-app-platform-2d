@@ -11,9 +11,14 @@ public class GameData
     [SerializeField]
     float posY;
 
+    public float PosX { get => posX; set => posX = value; }
+    public float PosY { get => posY; set => posY = value; }
+
     public GameData(float posX, float posY)
     {
         this.posX = posX;
         this.posY = posY;
     }
+
+    public GameData(){}
 }

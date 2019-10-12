@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
     {
         if(collider2D.gameObject.CompareTag("coin"))
         {
+            Gamemanager.instance.Save();
             Coin coin = collider2D.gameObject.GetComponent<Coin>();
             Gamemanager.instance.GetScore.AddPoints(coin.Points);
             Destroy(collider2D.gameObject);
